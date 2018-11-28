@@ -1,0 +1,76 @@
+def editNO(peoplelist):
+    k = 0
+    for i in range(len(peoplelist)):
+        if peoplelist[i][-1]=="2":
+            k = k+1
+    return k
+def makepeoplelist(k,s):
+    temp = [s]*k
+    return temp.copy()
+    
+from random import shuffle
+man = makepeoplelist(20000,"M1")
+man.append("M2")
+woman = makepeoplelist(20000,"W1")
+ratelist=[]
+population=[]
+for i in range(100):
+    boy = []
+    girl = []
+    shuffle(man)
+    shuffle(woman)
+    total = len(man)+len(woman)
+    edited = editNO(man)+editNO(woman)
+    editedrate = edited/total
+    ratelist.append(editedrate)
+    population.append(total)
+    generation = list(zip(man, woman))
+    print("%dth G: （rate:%.4f) (man:%d, edited man: %d) (woman:%d, edited woman: %d)" %(i,editedrate, len(man),editNO(man),len(woman),editNO(woman)) )
+    for j in range(len(generation)):
+        #print (generation[j])
+        if generation[j]==('M1', 'W1'):
+            for k in range(3):
+                if random.random()>0.5:
+                    boy.append("M1")
+                    #print ("M1")
+                else:
+                    girl.append("W1")
+        if generation[j]==('M2', 'W1'):
+            for k in range(3):
+                if random.random()>0.5:
+                    boy.append("M2")
+                    #print ("M1")
+                else:
+                    girl.append("W2") 
+        if generation[j]==('M1', 'W2'):
+            for k in range(3):
+                if random.random()>0.5:
+                    boy.append("M2")
+                    #print ("M1")
+                else:
+                    girl.append("W2") 
+    #print ("boys:",boy, "girls:",girl)
+    man = boy.copy()
+    woman = girl.copy()
+    
+    if len(man)==0:
+        print ("No man left, Human end at %d generation." %(i))
+        print ("boys:",boy,"girls",girl)
+        population.append(0)
+        break
+    if len(woman) == 0:
+        print ("No woman left, Human end at %d generation." %(i))
+        print ("boys:",boy,"girls",girl)
+        population.append(0)
+        break
+
+import matplotlib.pyplot as plt
+print (ratelist)
+population.append(0)
+print (population)
+plt.plot(ratelist,color = "red")
+plt.title("pollution rate")
+plt.show()
+plt.plot(population,color = "green")
+plt.title("population")
+plt.show()
