@@ -10,4 +10,4 @@ Initial conditions:
 5. If a normal gene meet an edited gene, the children will be edited.(pollute)<br>
 6. If an edit gene meet an edited gene, no child (harm)<br>
 
-Conclusion: This gene is too strong. The human end at 23th generation.<br> The posterity always carry the pollut gene so the pollut gene will conquer normal gene, always.
+Conclusion: This gene is too strong. The human distinguish at 23th generation.<br> The posterity always carry the pollut gene so the pollut gene will conquer normal gene, always.
