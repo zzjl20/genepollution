@@ -11,3 +11,5 @@ Initial conditions:
 6. If an edit gene meet an edited gene, no child (harm)<br>
 
 Conclusion: This gene is too strong. The human distinguish at 23th generation.<br> The posterity always carry the pollut gene so the pollut gene will conquer normal gene, always.
+![](./pics/gene_pullute_population.png)
+![](./pics/gene_pullute_rate.png)
